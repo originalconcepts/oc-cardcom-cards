@@ -65,13 +65,32 @@ class OCCC_Tokens {
 	public static function tokens_for_terminal( $user_id ) {
 		$terminal = self::current_terminal();
 		$out      = array();
+		$seen     = array();
 		foreach ( WC_Payment_Tokens::get_customer_tokens( (int) $user_id, self::gateway_id() ) as $token ) {
 			$token_terminal = (string) $token->get_meta( 'occc_terminal' );
-			// Include when the terminal is unknown on either side (legacy/untagged tokens);
-			// only hide a token whose terminal is explicitly a DIFFERENT one.
-			if ( '' === $terminal || '' === $token_terminal || $token_terminal === $terminal ) {
-				$out[] = $token;
+			// Terminal guard: only hide a token whose terminal is explicitly a DIFFERENT one.
+			if ( ! ( '' === $terminal || '' === $token_terminal || $token_terminal === $terminal ) ) {
+				continue;
 			}
+
+			$last4 = method_exists( $token, 'get_last4' ) ? (string) $token->get_last4() : '';
+			$month = method_exists( $token, 'get_expiry_month' ) ? (string) $token->get_expiry_month() : '';
+			$year  = method_exists( $token, 'get_expiry_year' ) ? (string) $token->get_expiry_year() : '';
+
+			// Skip junk/placeholder tokens that carry no real card number.
+			if ( '' === $last4 || '0000' === $last4 ) {
+				continue;
+			}
+
+			// De-duplicate by card identity (same card re-tokenised across purchases
+			// would otherwise appear many times) — keep the first (most recent).
+			$key = $last4 . '|' . $month . '|' . $year;
+			if ( isset( $seen[ $key ] ) ) {
+				continue;
+			}
+			$seen[ $key ] = true;
+
+			$out[] = $token;
 		}
 		return $out;
 	}
@@ -180,14 +199,29 @@ class OCCC_Tokens {
 
 		$gateway = self::gateway_id();
 
-		// Dedupe: skip if this user already has this token (whether we or Cardcom saved it).
+		$last4 = self::last4( $data['last4'] );
+		list( $month, $year ) = self::parse_expiry( $data['tokef'] );
+
+		// Don't persist junk/placeholder tokens (no real card number).
+		if ( '' === $last4 || '0000' === $last4 ) {
+			return;
+		}
+
+		// Dedupe: skip if this user already has the same token value, OR the same
+		// card (last4 + expiry) — a repeat purchase re-tokenises the same card and
+		// must not pile up as a new saved card each time.
+		$identity = $last4 . '|' . $month . '|' . $year;
 		foreach ( WC_Payment_Tokens::get_customer_tokens( $user_id, $gateway ) as $existing ) {
 			if ( hash_equals( $existing->get_token(), $raw ) ) {
 				return;
 			}
+			$ex_key = ( method_exists( $existing, 'get_last4' ) ? (string) $existing->get_last4() : '' )
+				. '|' . ( method_exists( $existing, 'get_expiry_month' ) ? (string) $existing->get_expiry_month() : '' )
+				. '|' . ( method_exists( $existing, 'get_expiry_year' ) ? (string) $existing->get_expiry_year() : '' );
+			if ( $ex_key === $identity ) {
+				return;
+			}
 		}
-
-		list( $month, $year ) = self::parse_expiry( $data['tokef'] );
 
 		$token = new WC_Payment_Token_CC();
 		$token->set_gateway_id( $gateway );

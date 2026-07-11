@@ -3,7 +3,7 @@ Contributors: originalconcepts
 Requires at least: 5.8
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 0.4.1
+Stable tag: 0.4.2
 License: GPL-2.0-or-later
 
 Companion for Cardcom: a "remember my card" toggle at checkout that saves the J5 token as a reusable customer card.
@@ -16,6 +16,9 @@ plugin never turns into a saved card. Charging, J5 capture and invoicing stay wi
 Cardcom's plugin.
 
 == Changelog ==
+
+= 0.4.2 =
+* De-duplicate saved cards by card identity and hide junk/placeholder (0000) tokens.
 
 = 0.4.1 =
 * Both checkout toggles ("remember my card" and "saved cards as separate methods") now default to ON.
