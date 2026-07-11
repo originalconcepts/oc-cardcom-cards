@@ -1,0 +1,62 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: OC Cardcom Cards 0.2.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"X-Domain: oc-cardcom-cards\n"
+
+msgid "Card saved for future purchases (Cardcom token rescued under J5)."
+msgstr ""
+
+msgid "Cardcom gateway id"
+msgstr ""
+
+msgid "Checkout Toggle"
+msgstr ""
+
+msgid "Companion to the Cardcom payment plugin. It adds a \"remember my card\" toggle at checkout and saves the token Cardcom mints under Capture Charge (J5) as a reusable saved card. Cardcom keeps handling the charge, J5 capture and invoicing."
+msgstr ""
+
+msgid "Description (shown under the toggle)"
+msgstr ""
+
+msgid "Enable debug logging (redacted, protected folder)"
+msgstr ""
+
+msgid "Enable saved credit cards"
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+msgid "Master switch for the \"remember my card\" feature. Turn off to hide the toggle everywhere without deactivating the plugin."
+msgstr ""
+
+msgid "OC Cardcom Cards"
+msgstr ""
+
+msgid "OC Cardcom Cards requires WooCommerce to be installed and active."
+msgstr ""
+
+msgid "Recommended OFF. Saving a card should be an explicit opt-in."
+msgstr ""
+
+msgid "Remember my card for next time"
+msgstr ""
+
+msgid "Save credit card"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Toggle label"
+msgstr ""
+
+msgid "Toggle on by default"
+msgstr ""
+
+msgid "Your card is stored securely by Cardcom (a token, not the card number). You can remove it at any time from your account."
+msgstr ""
