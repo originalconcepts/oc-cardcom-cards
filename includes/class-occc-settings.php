@@ -88,14 +88,14 @@ class OCCC_Settings {
 				'section' => 'toggle',
 				'label'   => __( 'Toggle on by default', 'oc-cardcom-cards' ),
 				'type'    => 'checkbox',
-				'default' => 0,
-				'desc'    => __( 'Recommended OFF. Saving a card should be an explicit opt-in.', 'oc-cardcom-cards' ),
+				'default' => 1,
+				'desc'    => __( 'The "remember my card" toggle starts on at checkout.', 'oc-cardcom-cards' ),
 			),
 			'promote_saved_cards' => array(
 				'section' => 'toggle',
 				'label'   => __( 'Show saved cards as separate payment methods', 'oc-cardcom-cards' ),
 				'type'    => 'checkbox',
-				'default' => 0,
+				'default' => 1,
 				'desc'    => __( 'When on, each saved card appears as its own option in the payment list (with "New credit card" below), instead of nested under Cardcom. The charge is still processed by Cardcom (J5 + invoice).', 'oc-cardcom-cards' ),
 			),
 		);

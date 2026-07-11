@@ -47,8 +47,8 @@ msgstr "OC Cardcom Cards"
 msgid "OC Cardcom Cards requires WooCommerce to be installed and active."
 msgstr "התוסף OC Cardcom Cards דורש ש-WooCommerce יהיה מותקן ופעיל."
 
-msgid "Recommended OFF. Saving a card should be an explicit opt-in."
-msgstr "מומלץ כבוי. שמירת כרטיס צריכה להיות בהסכמה מפורשת."
+msgid "The \"remember my card\" toggle starts on at checkout."
+msgstr "הטוגל "זכור את הכרטיס" מתחיל דלוק בקופה."
 
 msgid "Remember my card for next time"
 msgstr "זכרו את הכרטיס שלי לפעם הבאה"

@@ -18,7 +18,7 @@ return array(
 		'New credit card' => 'כרטיס אשראי חדש',
 		'OC Cardcom Cards' => 'OC Cardcom Cards',
 		'OC Cardcom Cards requires WooCommerce to be installed and active.' => 'התוסף OC Cardcom Cards דורש ש-WooCommerce יהיה מותקן ופעיל.',
-		'Recommended OFF. Saving a card should be an explicit opt-in.' => 'מומלץ כבוי. שמירת כרטיס צריכה להיות בהסכמה מפורשת.',
+		'The "remember my card" toggle starts on at checkout.' => 'הטוגל "זכור את הכרטיס" מתחיל דלוק בקופה.',
 		'Remember my card for next time' => 'זכרו את הכרטיס שלי לפעם הבאה',
 		'Save credit card' => 'שמירת כרטיס אשראי',
 		'Settings' => 'הגדרות',
