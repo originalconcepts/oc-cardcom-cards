@@ -3,7 +3,7 @@
  * Plugin Name:       OC Cardcom Cards
  * Plugin URI:        https://originalconcepts.co.il/
  * Description:        Companion for the Cardcom payment gateway: adds a "remember my card" toggle at checkout and rescues the token Cardcom mints under J5 (Capture Charge) so it becomes a real saved card for the customer — the step Cardcom's own plugin skips under Operation 6. Rides on Cardcom's engine; never replaces it. Charging, J5 capture and invoicing stay with Cardcom's plugin.
- * Version:           0.4.2
+ * Version:           0.4.3
  * Author:            Original Concepts
  * Author URI:        https://originalconcepts.co.il/
  * Text Domain:       oc-cardcom-cards
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'OCCC_VERSION', '0.4.2' );
+define( 'OCCC_VERSION', '0.4.3' );
 define( 'OCCC_PLUGIN_FILE', __FILE__ );
 define( 'OCCC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'OCCC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );

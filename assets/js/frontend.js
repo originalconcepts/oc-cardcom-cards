@@ -1,10 +1,12 @@
 /* OC Cardcom Cards — checkout behaviour
  *
  * 1. Hide Cardcom's native "save payment method" checkbox (our toggle replaces it).
- * 2. Hide our toggle when the shopper picks an existing saved card in Cardcom's own
- *    nested list — nothing to save then. In promoted mode the saved cards are separate
- *    top-level methods, so whenever Cardcom's box is open it means "new card": keep
- *    the toggle shown (its hidden nested radios must NOT hide it).
+ * 2. Make sure the "remember my card" toggle is present: on themes that render the
+ *    gateway payment box it comes from PHP (Cardcom's description); on themes that
+ *    render only the method title (no payment box) we inject it into the Cardcom <li>.
+ * 3. Hide the toggle when the shopper picks an existing saved card. In promoted mode
+ *    the saved cards are separate top-level methods, so an open Cardcom box always
+ *    means "new card": keep the toggle shown.
  */
 ( function ( $ ) {
 	'use strict';
@@ -13,7 +15,22 @@
 	var tokenName = 'wc-' + gateway + '-payment-token';
 	var nativeSaveId = 'wc-' + gateway + '-new-payment-method';
 
+	function ensureToggle() {
+		if ( $( '.occc-save-card' ).length ) {
+			return; // Already rendered (PHP description injection or a previous inject).
+		}
+		if ( ! window.OCCC || ! window.OCCC.toggleHtml ) {
+			return;
+		}
+		var $li = $( 'li.payment_method_' + gateway ).first();
+		if ( $li.length ) {
+			$li.append( window.OCCC.toggleHtml );
+		}
+	}
+
 	function sync() {
+		ensureToggle();
+
 		var $native = $( '#' + nativeSaveId ).closest( 'p, .form-row, .woocommerce-SavedPaymentMethods-saveNew' );
 		if ( $native.length ) {
 			$native.addClass( 'occc-hide-native-save' );
@@ -25,8 +42,6 @@
 			return;
 		}
 
-		// In promoted mode the saved cards live outside Cardcom's box, so an open
-		// Cardcom box always means a new card — always show the toggle.
 		var promoting = $( 'body' ).hasClass( 'occc-promote-cards' );
 		var $selected = $( 'input[name="' + tokenName + '"]:checked' );
 		var usingNew = promoting || ! $selected.length || 'new' === $selected.val();

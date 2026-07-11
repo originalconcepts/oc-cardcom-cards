@@ -114,6 +114,13 @@ class OCCC_Checkout {
 		}
 		wp_enqueue_style( 'occc-frontend', OCCC_PLUGIN_URL . 'assets/css/frontend.css', array(), OCCC_VERSION );
 		wp_enqueue_script( 'occc-frontend', OCCC_PLUGIN_URL . 'assets/js/frontend.js', array( 'jquery' ), OCCC_VERSION, true );
-		wp_localize_script( 'occc-frontend', 'OCCC', array( 'gateway' => OCCC_Tokens::gateway_id() ) );
+
+		$data = array( 'gateway' => OCCC_Tokens::gateway_id() );
+		// Provide the toggle markup so the JS can inject it on themes that don't render
+		// the gateway payment box (where the PHP description injection never appears).
+		if ( is_user_logged_in() ) {
+			$data['toggleHtml'] = self::toggle_html( OCCC_Tokens::gateway_id() );
+		}
+		wp_localize_script( 'occc-frontend', 'OCCC', $data );
 	}
 }
