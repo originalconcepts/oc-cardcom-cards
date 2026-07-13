@@ -14,7 +14,6 @@
 	var gateway = ( window.OCCC && window.OCCC.gateway ) ? window.OCCC.gateway : 'cardcom';
 	var tokenName = 'wc-' + gateway + '-payment-token';
 	var nativeSaveId = 'wc-' + gateway + '-new-payment-method';
-	var autoSelected = false;
 
 	function ensureToggle() {
 		if ( $( '.occc-save-card' ).length ) {
@@ -29,28 +28,8 @@
 		}
 	}
 
-	// Default a returning customer to their saved card (promoted top-level methods),
-	// once — if the current selection is "New credit card" (or nothing).
-	function autoSelectSaved() {
-		if ( autoSelected ) {
-			return;
-		}
-		var $saved = $( 'input[name="payment_method"][value^="occc_saved_"]' );
-		if ( ! $saved.length ) {
-			return;
-		}
-		var $checked = $( 'input[name="payment_method"]:checked' );
-		if ( ! $checked.length || $checked.val() === gateway ) {
-			autoSelected = true;
-			$saved.first().prop( 'checked', true ).trigger( 'click' ).trigger( 'change' );
-		} else {
-			autoSelected = true; // The shopper already has a (different) choice — leave it.
-		}
-	}
-
 	function sync() {
 		ensureToggle();
-		autoSelectSaved();
 
 		var $native = $( '#' + nativeSaveId ).closest( 'p, .form-row, .woocommerce-SavedPaymentMethods-saveNew' );
 		if ( $native.length ) {
