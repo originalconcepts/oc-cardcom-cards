@@ -4,9 +4,9 @@
  * 2. Make sure the "remember my card" toggle is present: on themes that render the
  *    gateway payment box it comes from PHP (Cardcom's description); on themes that
  *    render only the method title (no payment box) we inject it into the Cardcom <li>.
- * 3. Hide the toggle when the shopper picks an existing saved card. In promoted mode
- *    the saved cards are separate top-level methods, so an open Cardcom box always
- *    means "new card": keep the toggle shown.
+ * 3. In promoted mode, pre-select the first SAVED card (not "New credit card") once
+ *    on load — a returning customer should default to their saved card.
+ * 4. Hide the toggle when the shopper picks an existing saved card.
  */
 ( function ( $ ) {
 	'use strict';
@@ -14,10 +14,11 @@
 	var gateway = ( window.OCCC && window.OCCC.gateway ) ? window.OCCC.gateway : 'cardcom';
 	var tokenName = 'wc-' + gateway + '-payment-token';
 	var nativeSaveId = 'wc-' + gateway + '-new-payment-method';
+	var autoSelected = false;
 
 	function ensureToggle() {
 		if ( $( '.occc-save-card' ).length ) {
-			return; // Already rendered (PHP description injection or a previous inject).
+			return;
 		}
 		if ( ! window.OCCC || ! window.OCCC.toggleHtml ) {
 			return;
@@ -28,8 +29,28 @@
 		}
 	}
 
+	// Default a returning customer to their saved card (promoted top-level methods),
+	// once — if the current selection is "New credit card" (or nothing).
+	function autoSelectSaved() {
+		if ( autoSelected ) {
+			return;
+		}
+		var $saved = $( 'input[name="payment_method"][value^="occc_saved_"]' );
+		if ( ! $saved.length ) {
+			return;
+		}
+		var $checked = $( 'input[name="payment_method"]:checked' );
+		if ( ! $checked.length || $checked.val() === gateway ) {
+			autoSelected = true;
+			$saved.first().prop( 'checked', true ).trigger( 'click' ).trigger( 'change' );
+		} else {
+			autoSelected = true; // The shopper already has a (different) choice — leave it.
+		}
+	}
+
 	function sync() {
 		ensureToggle();
+		autoSelectSaved();
 
 		var $native = $( '#' + nativeSaveId ).closest( 'p, .form-row, .woocommerce-SavedPaymentMethods-saveNew' );
 		if ( $native.length ) {
