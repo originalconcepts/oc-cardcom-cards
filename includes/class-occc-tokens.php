@@ -137,12 +137,16 @@ class OCCC_Tokens {
 		if ( ! $order || ! self::should_save( $order ) ) {
 			return;
 		}
+		$tokef = (string) $order->get_meta( 'cardcom_Tokef' );   // MMYY, computed by Cardcom.
+		if ( '' === $tokef ) {
+			$tokef = (string) $order->get_meta( 'cc_Tokef' );    // Raw ExtShvaParams_Tokef30.
+		}
 		self::save(
 			$order,
 			array(
 				'token' => (string) $order->get_meta( 'cardcom_token_val' ),
 				'last4' => (string) $order->get_meta( 'cc_number' ),
-				'tokef' => (string) $order->get_meta( 'cardcom_Tokef' ), // MMYY
+				'tokef' => $tokef,
 				'brand' => '',
 			)
 		);
@@ -206,6 +210,12 @@ class OCCC_Tokens {
 		if ( '' === $last4 || '0000' === $last4 ) {
 			return;
 		}
+		// Don't persist a token without a valid, future expiry — charging it with a
+		// wrong expiry is exactly what the acquirer rejects (60000004). A later rescue
+		// (status change, once Cardcom has written the expiry meta) will save it right.
+		if ( '' === $month || '' === $year ) {
+			return;
+		}
 
 		// Dedupe: skip if this user already has the same token value, OR the same
 		// card (last4 + expiry) — a repeat purchase re-tokenises the same card and
@@ -250,14 +260,21 @@ class OCCC_Tokens {
 	 * @param string $tokef MMYY.
 	 * @return array [ month, year ]
 	 */
+	// Parse a Cardcom MMYY expiry into [MM, YYYY], or [ '', '' ] if missing, malformed
+	// or already expired. NEVER guesses a default — a wrong expiry makes the acquirer
+	// decline the later token charge (ResponseCode 60000004).
 	private static function parse_expiry( $tokef ) {
 		$tokef = preg_replace( '/\D/', '', (string) $tokef );
-		if ( strlen( $tokef ) >= 4 ) {
-			$month = substr( $tokef, 0, 2 );
-			$year  = '20' . substr( $tokef, 2, 2 );
-			return array( $month, $year );
+		if ( strlen( $tokef ) < 4 ) {
+			return array( '', '' );
 		}
-		return array( '01', gmdate( 'Y' ) );
+		$month = substr( $tokef, 0, 2 );
+		$year  = '20' . substr( $tokef, 2, 2 );
+		$m     = (int) $month;
+		if ( $m < 1 || $m > 12 || (int) ( $year . $month ) < (int) gmdate( 'Ym' ) ) {
+			return array( '', '' );
+		}
+		return array( $month, $year );
 	}
 
 	/**
