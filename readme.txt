@@ -3,7 +3,7 @@ Contributors: originalconcepts
 Requires at least: 5.8
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 0.5.0
+Stable tag: 0.5.1
 License: GPL-2.0-or-later
 
 Companion for Cardcom: a "remember my card" toggle at checkout that saves the J5 token as a reusable customer card.
@@ -16,6 +16,9 @@ plugin never turns into a saved card. Charging, J5 capture and invoicing stay wi
 Cardcom's plugin.
 
 == Changelog ==
+
+= 0.5.1 =
+* FIX: the save-card toggle switch could collapse to a lone circle on some themes (that force `label{display:block}`), which un-blockified the switch track. Hardened the toggle CSS (explicit inline-block track + !important on the switch dimensions) so it always renders as a proper on/off switch.
 
 = 0.5.0 =
 * FIX: never save a token with a wrong/expired expiry (was defaulting to 01/current-year), which made the acquirer decline the saved-card charge with 60000004. Read the expiry from Cardcom cc_Tokef/cardcom_Tokef and validate it is a real future date.
