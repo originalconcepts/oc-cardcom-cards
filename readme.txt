@@ -3,7 +3,7 @@ Contributors: originalconcepts
 Requires at least: 5.8
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 0.5.1
+Stable tag: 0.5.2
 License: GPL-2.0-or-later
 
 Companion for Cardcom: a "remember my card" toggle at checkout that saves the J5 token as a reusable customer card.
@@ -16,6 +16,9 @@ plugin never turns into a saved card. Charging, J5 capture and invoicing stay wi
 Cardcom's plugin.
 
 == Changelog ==
+
+= 0.5.2 =
+* FIX: "New credit card" could fail with "token not found" (or silently charge the wrong saved card) in promoted mode. Cardcom's own saved-cards radio list is hidden there, but a hidden token radio stayed selected — so "New credit card" submitted that token instead of a new card, and a token minted on another terminal is rejected as "token not found". The checkout script now forces the hidden native selection back to "new".
 
 = 0.5.1 =
 * FIX: the save-card toggle switch could collapse to a lone circle on some themes (that force `label{display:block}`), which un-blockified the switch track. Hardened the toggle CSS (explicit inline-block track + !important on the switch dimensions) so it always renders as a proper on/off switch.
