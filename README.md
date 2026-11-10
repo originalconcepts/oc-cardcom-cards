@@ -17,7 +17,7 @@ customer-facing saved-card experience.
 - Saved cards appear natively under **My Account → Payment methods**.
 - Terminal-bound tokens (a card saved on one terminal is never offered on another).
 - Bilingual: Hebrew (he_IL) + English, per WordPress admin/site language.
-- Self-updates from this repository (Plugin Update Checker).
+- Free. Updates arrive through OC Pluginz with a free licence key (the hub at my.ocpluginz.com).
 
 ## Requirements
 - WooCommerce 6.0+
@@ -25,16 +25,33 @@ customer-facing saved-card experience.
 - The Cardcom terminal must allow "card-not-present" / token charges.
 
 ## Settings
-WooCommerce → **OC Cardcom Cards**.
+**OC Pluginz → Cardcom Cards** in the WordPress admin (the shared menu of the OC
+plugins). The licence is on the **OC Pluginz account** tab next to the settings.
+
+## Licence (since 0.6.0)
+The plugin is free. A free OC Pluginz licence key connects the site to the hub
+(`my.ocpluginz.com`, product `oc-cardcom-cards`, plan `free`): it brings the
+updates and switches on saving new cards.
+
+- **No key / refused / suspended / expired past its grace days** → restricted
+  mode: the "remember my card" toggle is not rendered and no new token is
+  saved. Nothing else changes: saved cards keep being offered and charged, My
+  Account keeps listing and deleting them, the admin keeps working, nothing is
+  deleted, and the checkout is never blocked.
+- **Sites that ran a version below 0.6.0** keep working in full without a key
+  (option `occc_legacy_install`); they only need the key for updates.
+- `wp-config.php`: `OCCC_LICENSE_KEY` (a fixed key), `OCCC_HUB_URL` (another
+  hub, e.g. staging), `OC_PLUGINZ_AGENCY` (our own sites: always full, no hub
+  calls, updates by hand).
 
 ## Updates
-The plugin checks this repo for new tagged releases and shows the update in
-Dashboard → Plugins. Configure the source in the main file:
+Since 0.6.0 updates come only from the OC Pluginz hub, with the licence key as
+the ticket, and show up on the Plugins screen like any other update. The bundled
+Plugin Update Checker and the GitHub update source were removed.
 
-```php
-define( 'OCCC_UPDATE_REPO', 'https://github.com/<owner>/oc-cardcom-cards/' );
-// define( 'OCCC_UPDATE_TOKEN', '<github token>' ); // private repos only
-```
+## Release zip
+`bash bin/build-zip.sh` → `dist/oc-cardcom-cards.zip` (top folder
+`oc-cardcom-cards/`), the package the hub serves. CI builds it on every push.
 
 ## Author
-Original Concepts — https://originalconcepts.co.il/
+Original Concepts — https://originalconcepts.co.il/ · https://ocpluginz.com/oc-cardcom-cards

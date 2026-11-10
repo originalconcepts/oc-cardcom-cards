@@ -21,22 +21,34 @@ class OCCC_Plugin {
 	/**
 	 * Get the singleton instance.
 	 *
+	 * @param bool $woocommerce Whether WooCommerce is active (the checkout parts need it).
 	 * @return OCCC_Plugin
 	 */
-	public static function instance() {
+	public static function instance( $woocommerce = true ) {
 		if ( null === self::$instance ) {
-			self::$instance = new self();
+			self::$instance = new self( $woocommerce );
 		}
 		return self::$instance;
 	}
 
 	/**
 	 * Boot components.
+	 *
+	 * @param bool $woocommerce Whether WooCommerce is active.
 	 */
-	private function __construct() {
+	private function __construct( $woocommerce ) {
 		add_action( 'init', array( $this, 'load_textdomain' ) );
 
+		// The OC Pluginz licence, updates from the hub, and the admin screens.
+		OCCC_Hub::boot();
+		OCCC_Notices::boot();
+		OCCC_Hub_Updater::boot();
+		OCCC_Hub_Admin::boot();
 		OCCC_Settings::init();
+
+		if ( ! $woocommerce ) {
+			return;
+		}
 		OCCC_Tokens::init();
 		OCCC_Checkout::init();
 		OCCC_Methods::init();

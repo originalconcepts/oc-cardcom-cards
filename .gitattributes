@@ -1,0 +1,2 @@
+# The build script must keep LF endings on every checkout (bash cannot run it with CRLF).
+*.sh text eol=lf

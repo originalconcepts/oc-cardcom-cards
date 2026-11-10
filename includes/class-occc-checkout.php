@@ -37,6 +37,11 @@ class OCCC_Checkout {
 		if ( ! OCCC_Settings::get_bool( 'enabled' ) || ! is_user_logged_in() ) {
 			return $gateways;
 		}
+		// Restricted mode (no valid OC Pluginz licence): no toggle. Saved cards are
+		// not touched here, so they keep being offered and charged.
+		if ( ! OCCC_Hub::licensed() ) {
+			return $gateways;
+		}
 		// The toggle also shows on "New credit card" in promoted mode, so a customer
 		// can save an additional card.
 		$gid = OCCC_Tokens::gateway_id();
@@ -92,6 +97,9 @@ class OCCC_Checkout {
 		$field       = 'wc-' . OCCC_Tokens::gateway_id() . '-payment-token';
 		$chose_saved = ! empty( $_POST[ $field ] ) && 'new' !== $_POST[ $field ]; // phpcs:ignore WordPress.Security.NonceVerification
 		$remember    = ! empty( $_POST['occc_remember'] ) && ! $chose_saved; // phpcs:ignore WordPress.Security.NonceVerification
+		if ( ! OCCC_Hub::licensed() ) {
+			$remember = false; // Restricted mode: the toggle is not rendered, and a posted one is not honoured.
+		}
 
 		$order = wc_get_order( $order_id );
 		if ( $order ) {
@@ -118,7 +126,8 @@ class OCCC_Checkout {
 		$data = array( 'gateway' => OCCC_Tokens::gateway_id() );
 		// Provide the toggle markup so the JS can inject it on themes that don't render
 		// the gateway payment box (where the PHP description injection never appears).
-		if ( is_user_logged_in() ) {
+		// Not in restricted mode: without the markup the JS has nothing to inject.
+		if ( is_user_logged_in() && OCCC_Hub::licensed() ) {
 			$data['toggleHtml'] = self::toggle_html( OCCC_Tokens::gateway_id() );
 		}
 		wp_localize_script( 'occc-frontend', 'OCCC', $data );
