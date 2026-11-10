@@ -3,7 +3,7 @@
  * Plugin Name:       OC Cardcom Cards
  * Plugin URI:        https://ocpluginz.com/oc-cardcom-cards
  * Description:        Companion for the Cardcom payment gateway: adds a "remember my card" toggle at checkout and rescues the token Cardcom mints under J5 (Capture Charge) so it becomes a real saved card for the customer — the step Cardcom's own plugin skips under Operation 6. Rides on Cardcom's engine; never replaces it. Charging, J5 capture and invoicing stay with Cardcom's plugin.
- * Version:           0.6.0
+ * Version:           0.6.1
  * Author:            Original Concepts
  * Author URI:        https://originalconcepts.co.il/
  * Text Domain:       oc-cardcom-cards
@@ -24,7 +24,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 // The suite's shared admin chrome (one "OC Pluginz" menu for every OC plugin on the site); the newest bundled copy wins.
 require_once __DIR__ . '/oc-pluginz/loader.php';
 
-define( 'OCCC_VERSION', '0.6.0' );
+define( 'OCCC_VERSION', '0.6.1' );
+
+/**
+ * Where a site without a licence key looks for updates: sites that ran a version
+ * below 0.6.0, and agency sites, keep updating from the plugin's GitHub tags.
+ * Everyone else updates through the OC Pluginz hub.
+ */
+if ( ! defined( 'OCCC_UPDATE_REPO' ) ) {
+	define( 'OCCC_UPDATE_REPO', 'https://github.com/originalconcepts/oc-cardcom-cards/' );
+}
 define( 'OCCC_PLUGIN_FILE', __FILE__ );
 define( 'OCCC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'OCCC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -56,6 +65,7 @@ function occc_bootstrap() {
 	require_once OCCC_PLUGIN_DIR . 'includes/hub/class-occc-hub.php';
 	require_once OCCC_PLUGIN_DIR . 'includes/hub/class-occc-notices.php';
 	require_once OCCC_PLUGIN_DIR . 'includes/hub/class-occc-hub-updater.php';
+	require_once OCCC_PLUGIN_DIR . 'includes/class-occc-updater.php';
 	require_once OCCC_PLUGIN_DIR . 'includes/hub/class-occc-hub-admin.php';
 	require_once OCCC_PLUGIN_DIR . 'includes/class-occc-logger.php';
 	require_once OCCC_PLUGIN_DIR . 'includes/class-occc-settings.php';

@@ -77,7 +77,7 @@ return array(
 		'Saved cards are switched off in the settings' => 'כרטיסים שמורים כבויים בהגדרות',
 		'Saved credit cards for Cardcom: a "remember my card" toggle at checkout, and the saved cards offered on the next purchase.' => 'כרטיסי אשראי שמורים לקארדקום: טוגל "זכור את הכרטיס" בקופה, והכרטיסים השמורים מוצעים ברכישה הבאה.',
 		'Saving cards at checkout is on' => 'שמירת כרטיסים בקופה פעילה',
-		'Saving cards is on. This site ran OC Cardcom Cards before version 0.6.0, so it keeps working in full with or without a key; the key is what brings updates.' => 'שמירת הכרטיסים פעילה. האתר הזה הפעיל את OC Cardcom Cards לפני גרסה 0.6.0, ולכן הוא ממשיך לעבוד במלואו עם מפתח או בלעדיו; המפתח הוא מה שמביא עדכונים.',
+		'Saving cards is on. This site ran OC Cardcom Cards before version 0.6.0, so it keeps working in full and keeps receiving updates without a key.' => 'שמירת הכרטיסים פעילה. האתר הזה הפעיל את OC Cardcom Cards לפני גרסה 0.6.0, ולכן הוא ממשיך לעבוד במלואו ולקבל עדכונים גם בלי מפתח.',
 		'Saving cards is on: the "remember my card" toggle is shown at checkout.' => 'שמירת הכרטיסים פעילה: הטוגל "זכור את הכרטיס" מוצג בקופה.',
 		'Saving new cards is off: no valid licence' => 'שמירת כרטיסים חדשים כבויה: אין רישיון בתוקף',
 		'Set in OCCC_LICENSE_KEY in wp-config.php.' => 'מוגדר ב-OCCC_LICENSE_KEY בקובץ wp-config.php.',

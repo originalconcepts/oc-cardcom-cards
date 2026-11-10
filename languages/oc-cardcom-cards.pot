@@ -220,7 +220,7 @@ msgstr ""
 msgid "Saving cards at checkout is on"
 msgstr ""
 
-msgid "Saving cards is on. This site ran OC Cardcom Cards before version 0.6.0, so it keeps working in full with or without a key; the key is what brings updates."
+msgid "Saving cards is on. This site ran OC Cardcom Cards before version 0.6.0, so it keeps working in full and keeps receiving updates without a key."
 msgstr ""
 
 msgid "Saving cards is on: the \"remember my card\" toggle is shown at checkout."

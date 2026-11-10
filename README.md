@@ -29,6 +29,8 @@ customer-facing saved-card experience.
 plugins). The licence is on the **OC Pluginz account** tab next to the settings.
 
 ## Licence (since 0.6.0)
+
+Since 0.6.1 a site that ran a version below 0.6.0 needs no key at all: it works in full and keeps updating from this repository's tags. Only new installs need the free key, and they update through the hub.
 The plugin is free. A free OC Pluginz licence key connects the site to the hub
 (`my.ocpluginz.com`, product `oc-cardcom-cards`, plan `free`): it brings the
 updates and switches on saving new cards.
