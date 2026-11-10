@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: OC Cardcom Cards 0.3.0\n"
+"Project-Id-Version: OC Cardcom Cards 0.6.0\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -8,11 +8,41 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Domain: oc-cardcom-cards\n"
 
+msgid "%1$d of %2$d sites in use."
+msgstr "%1$d מתוך %2$d אתרים בשימוש."
+
+msgid "(this site)"
+msgstr "(האתר הזה)"
+
+msgid "[%s] OC Cardcom Cards: saving new cards is switched off"
+msgstr "[%s] OC Cardcom Cards: שמירת כרטיסים חדשים כבויה"
+
+msgid "A message from OC Pluginz · OC Cardcom Cards"
+msgstr "הודעה מ-OC Pluginz · OC Cardcom Cards"
+
+msgid "Agency mode"
+msgstr "מצב סוכנות"
+
 msgid "Card saved for future purchases (Cardcom token rescued under J5)."
 msgstr "הכרטיס נשמר לרכישות עתידיות (טוקן קארדקום שנתפס תחת J5)."
 
+msgid "Cardcom Cards"
+msgstr "Cardcom Cards"
+
 msgid "Cardcom gateway id"
 msgstr "מזהה שער קארדקום"
+
+msgid "Cards already saved keep working at checkout and in My Account."
+msgstr "כרטיסים שכבר נשמרו ממשיכים לעבוד בקופה ובעמוד \"החשבון שלי\"."
+
+msgid "Check for updates"
+msgstr "בדיקת עדכונים"
+
+msgid "Check now"
+msgstr "בדיקה עכשיו"
+
+msgid "Checked for updates. If there is a new version, it now shows on the Plugins screen."
+msgstr "בדקנו עדכונים. אם יש גרסה חדשה, היא מופיעה עכשיו במסך התוספים."
 
 msgid "Checkout Toggle"
 msgstr "טוגל בקופה"
@@ -20,11 +50,38 @@ msgstr "טוגל בקופה"
 msgid "Companion to the Cardcom payment plugin. It adds a \"remember my card\" toggle at checkout and saves the token Cardcom mints under Capture Charge (J5) as a reusable saved card. Cardcom keeps handling the charge, J5 capture and invoicing."
 msgstr "תוסף נלווה לתוסף הסליקה של קארדקום. מוסיף טוגל \"זכור את הכרטיס\" בקופה ושומר את הטוקן שקארדקום מייצרת תחת Capture Charge ‏(J5) ככרטיס שמור לשימוש חוזר. קארדקום ממשיכה לטפל בסליקה, בתפיסת ה-J5 ובחשבוניות."
 
+msgid "Connect"
+msgstr "חיבור"
+
+msgid "Connect the key"
+msgstr "לחיבור המפתח"
+
+msgid "Connect to OC Pluginz"
+msgstr "חיבור ל-OC Pluginz"
+
+msgid "Connected. The licence is active on this site."
+msgstr "מחובר. הרישיון פעיל באתר הזה."
+
 msgid "Credit card ending in %1$s (exp %2$s)"
 msgstr "כרטיס אשראי מסתיים ב-%1$s (תוקף %2$s)"
 
 msgid "Description (shown under the toggle)"
 msgstr "תיאור (מוצג מתחת לטוגל)"
+
+msgid "Details"
+msgstr "לפרטים"
+
+msgid "Disconnect this site"
+msgstr "ניתוק האתר הזה"
+
+msgid "Disconnect this site from the licence? The \"remember my card\" toggle will no longer be shown at checkout and no new cards will be saved, until a key is connected again. Cards already saved keep working."
+msgstr "לנתק את האתר הזה מהרישיון? הטוגל \"זכור את הכרטיס\" לא יוצג בקופה ולא יישמרו כרטיסים חדשים, עד שיחובר מפתח שוב. כרטיסים שכבר נשמרו ממשיכים לעבוד."
+
+msgid "Disconnect this site from the licence? Updates will stop until a key is connected again. Saving cards keeps working."
+msgstr "לנתק את האתר הזה מהרישיון? העדכונים ייעצרו עד שיחובר מפתח שוב. שמירת הכרטיסים ממשיכה לעבוד."
+
+msgid "Disconnected. This site's seat on the licence is free again."
+msgstr "נותק. המקום של האתר הזה ברישיון התפנה."
 
 msgid "Enable debug logging (redacted, protected folder)"
 msgstr "הפעלת לוג ניפוי (מצונזר, תיקייה מוגנת)"
@@ -32,8 +89,38 @@ msgstr "הפעלת לוג ניפוי (מצונזר, תיקייה מוגנת)"
 msgid "Enable saved credit cards"
 msgstr "הפעלת כרטיסי אשראי שמורים"
 
+msgid "Every site this licence allows is already connected. Disconnect another site first (on its account screen, or in your OC Pluginz account)."
+msgstr "כל האתרים שהרישיון מאפשר כבר מחוברים. נתקו קודם אתר אחר (במסך החשבון שלו, או בחשבון OC Pluginz)."
+
+msgid "Everything on this site keeps working as before. To keep receiving updates, connect a licence key: it is free and takes a minute."
+msgstr "הכול באתר הזה ממשיך לעבוד כמו קודם. כדי להמשיך לקבל עדכונים, חברו מפתח רישיון: הוא בחינם וזה לוקח דקה."
+
+msgid "Expired"
+msgstr "פג תוקף"
+
 msgid "General"
 msgstr "כללי"
+
+msgid "Got it"
+msgstr "הבנתי"
+
+msgid "Grace days"
+msgstr "ימי חסד"
+
+msgid "Installed: %s"
+msgstr "מותקנת: %s"
+
+msgid "Last check"
+msgstr "בדיקה אחרונה"
+
+msgid "Latest at OC Pluginz: %s"
+msgstr "האחרונה ב-OC Pluginz: %s"
+
+msgid "Licence"
+msgstr "רישיון"
+
+msgid "Licence key"
+msgstr "מפתח רישיון"
 
 msgid "Master switch for the \"remember my card\" feature. Turn off to hide the toggle everywhere without deactivating the plugin."
 msgstr "מתג ראשי ליכולת \"זכור את הכרטיס\". כיבוי מסתיר את הטוגל בכל מקום בלי לנטרל את התוסף."
@@ -41,20 +128,113 @@ msgstr "מתג ראשי ליכולת \"זכור את הכרטיס\". כיבוי 
 msgid "New credit card"
 msgstr "כרטיס אשראי חדש"
 
+msgid "New versions are offered on the Plugins screen while the licence is valid."
+msgstr "גרסאות חדשות מוצעות במסך התוספים כל עוד הרישיון בתוקף."
+
+msgid "no end date"
+msgstr "ללא תאריך סיום"
+
+msgid "No key yet? It is free:"
+msgstr "אין לכם מפתח? מקבלים אותו בחינם:"
+
+msgid "No licence key."
+msgstr "אין מפתח רישיון."
+
+msgid "Not accepted by OC Pluginz"
+msgstr "לא התקבל ב-OC Pluginz"
+
+msgid "Not confirmed yet"
+msgstr "עוד לא אושר"
+
+msgid "Not connected"
+msgstr "לא מחובר"
+
+msgid "Nothing was deleted and the checkout keeps working as usual. Saving new cards comes back by itself as soon as the licence is in order."
+msgstr "שום דבר לא נמחק והקופה ממשיכה לעבוד כרגיל. שמירת כרטיסים חדשים חוזרת לבד ברגע שהרישיון מסודר."
+
 msgid "OC Cardcom Cards"
 msgstr "OC Cardcom Cards"
+
+msgid "OC Cardcom Cards is installed."
+msgstr "OC Cardcom Cards מותקן."
+
+msgid "OC Cardcom Cards is not connected to OC Pluginz yet, so the \"remember my card\" toggle is not shown at checkout and no new cards are saved. Connect the licence key (it is free) to switch it on."
+msgstr "OC Cardcom Cards עוד לא מחובר ל-OC Pluginz, ולכן הטוגל \"זכור את הכרטיס\" לא מוצג בקופה ולא נשמרים כרטיסים חדשים. חברו את מפתח הרישיון (הוא בחינם) כדי להפעיל."
+
+msgid "OC Cardcom Cards now updates through OC Pluginz."
+msgstr "OC Cardcom Cards מתעדכן מעכשיו דרך OC Pluginz."
 
 msgid "OC Cardcom Cards requires WooCommerce to be installed and active."
 msgstr "התוסף OC Cardcom Cards דורש ש-WooCommerce יהיה מותקן ופעיל."
 
-msgid "The \"remember my card\" toggle starts on at checkout."
-msgstr "הטוגל "זכור את הכרטיס" מתחיל דלוק בקופה."
+msgid "OC Pluginz account"
+msgstr "חשבון OC Pluginz"
+
+msgid "OC Pluginz answered with status %d."
+msgstr "OC Pluginz ענה בסטטוס %d."
+
+msgid "OC Pluginz answered without a licence."
+msgstr "OC Pluginz ענה בלי רישיון."
+
+msgid "OC Pluginz did not accept the OC Cardcom Cards licence key, so the \"remember my card\" toggle is not shown at checkout and no new cards are saved."
+msgstr "OC Pluginz לא קיבל את מפתח הרישיון של OC Cardcom Cards, ולכן הטוגל \"זכור את הכרטיס\" לא מוצג בקופה ולא נשמרים כרטיסים חדשים."
+
+msgid "OC Pluginz does not offer OC Cardcom Cards yet. Contact Original Concepts."
+msgstr "OC Pluginz עוד לא מציע את OC Cardcom Cards. פנו ל-Original Concepts."
+
+msgid "OC Pluginz does not recognise this key for OC Cardcom Cards. Check it in your OC Pluginz account."
+msgstr "OC Pluginz לא מזהה את המפתח הזה עבור OC Cardcom Cards. בדקו אותו בחשבון OC Pluginz שלכם."
+
+msgid "OC Pluginz licence"
+msgstr "רישיון OC Pluginz"
+
+msgid "OC Pluginz refused the request for now. Try again in a minute."
+msgstr "OC Pluginz דחה את הבקשה כרגע. נסו שוב בעוד דקה."
+
+msgid "OC_PLUGINZ_AGENCY is set in wp-config.php: this site does not use an OC Pluginz licence. Everything works in full, and the plugin does not contact OC Pluginz, so updates are installed by hand."
+msgstr "OC_PLUGINZ_AGENCY מוגדר ב-wp-config.php: האתר הזה לא משתמש ברישיון OC Pluginz. הכול עובד במלואו, והתוסף לא פונה ל-OC Pluginz, ולכן עדכונים מותקנים ידנית."
+
+msgid "One step is left: connect the free licence key you received by email. Until then the \"remember my card\" toggle is not shown at checkout; the checkout itself works as usual."
+msgstr "נשאר צעד אחד: לחבר את מפתח הרישיון החינמי שקיבלתם במייל. עד אז הטוגל \"זכור את הכרטיס\" לא מוצג בקופה; הקופה עצמה עובדת כרגיל."
+
+msgid "Open the licence screen"
+msgstr "למסך הרישיון"
+
+msgid "Paste the licence key you received by email when you downloaded the plugin (the download is free). It also appears in your personal area at OC Pluginz."
+msgstr "הדביקו את מפתח הרישיון שקיבלתם במייל כשהורדתם את התוסף (ההורדה חינמית). הוא מופיע גם באזור האישי ב-OC Pluginz."
+
+msgid "Plan"
+msgstr "מסלול"
 
 msgid "Remember my card for next time"
 msgstr "זכרו את הכרטיס שלי לפעם הבאה"
 
+msgid "Renews soon"
+msgstr "מתחדש בקרוב"
+
 msgid "Save credit card"
 msgstr "שמירת כרטיס אשראי"
+
+msgid "Saved cards are switched off in the settings"
+msgstr "כרטיסים שמורים כבויים בהגדרות"
+
+msgid "Saved credit cards for Cardcom: a \"remember my card\" toggle at checkout, and the saved cards offered on the next purchase."
+msgstr "כרטיסי אשראי שמורים לקארדקום: טוגל \"זכור את הכרטיס\" בקופה, והכרטיסים השמורים מוצעים ברכישה הבאה."
+
+msgid "Saving cards at checkout is on"
+msgstr "שמירת כרטיסים בקופה פעילה"
+
+msgid "Saving cards is on. This site ran OC Cardcom Cards before version 0.6.0, so it keeps working in full with or without a key; the key is what brings updates."
+msgstr "שמירת הכרטיסים פעילה. האתר הזה הפעיל את OC Cardcom Cards לפני גרסה 0.6.0, ולכן הוא ממשיך לעבוד במלואו עם מפתח או בלעדיו; המפתח הוא מה שמביא עדכונים."
+
+msgid "Saving cards is on: the \"remember my card\" toggle is shown at checkout."
+msgstr "שמירת הכרטיסים פעילה: הטוגל \"זכור את הכרטיס\" מוצג בקופה."
+
+msgid "Saving new cards is off: no valid licence"
+msgstr "שמירת כרטיסים חדשים כבויה: אין רישיון בתוקף"
+
+msgid "Set in OCCC_LICENSE_KEY in wp-config.php."
+msgstr "מוגדר ב-OCCC_LICENSE_KEY בקובץ wp-config.php."
 
 msgid "Settings"
 msgstr "הגדרות"
@@ -62,8 +242,56 @@ msgstr "הגדרות"
 msgid "Show saved cards as separate payment methods"
 msgstr "הצג כרטיסים שמורים כאמצעי תשלום נפרדים"
 
+msgid "Sites"
+msgstr "אתרים"
+
+msgid "Status"
+msgstr "מצב"
+
+msgid "Suspended"
+msgstr "מושהה"
+
+msgid "That does not look like an OC Pluginz licence key (ocpz_…)."
+msgstr "זה לא נראה כמו מפתח רישיון של OC Pluginz (ocpz_…)."
+
 msgid "That saved card is unavailable. Please choose another method."
 msgstr "הכרטיס השמור אינו זמין. בחרו אמצעי תשלום אחר."
+
+msgid "The \"remember my card\" toggle starts on at checkout."
+msgstr "הטוגל \"זכור את הכרטיס\" מתחיל דלוק בקופה."
+
+msgid "The licence is checked again every hour, and every time this screen opens."
+msgstr "הרישיון נבדק שוב כל שעה, וגם בכל פעם שהמסך הזה נפתח."
+
+msgid "The licence screen on your site:"
+msgstr "מסך הרישיון באתר שלכם:"
+
+msgid "The licence status was updated."
+msgstr "מצב הרישיון עודכן."
+
+msgid "The OC Cardcom Cards licence has expired, so the \"remember my card\" toggle is not shown at checkout and no new cards are saved."
+msgstr "תוקף הרישיון של OC Cardcom Cards הסתיים, ולכן הטוגל \"זכור את הכרטיס\" לא מוצג בקופה ולא נשמרים כרטיסים חדשים."
+
+msgid "The OC Cardcom Cards licence has passed its end date and is on its grace days. Renew it now, or saving new cards will be switched off when they end."
+msgstr "תוקף הרישיון של OC Cardcom Cards הסתיים והוא בימי חסד. חדשו עכשיו, אחרת שמירת כרטיסים חדשים תיכבה כשהם ייגמרו."
+
+msgid "The OC Cardcom Cards licence is not in order, so updates are not offered. Saving cards keeps working on this site."
+msgstr "הרישיון של OC Cardcom Cards לא מסודר, ולכן לא מוצעים עדכונים. שמירת הכרטיסים ממשיכה לעבוד באתר הזה."
+
+msgid "The OC Cardcom Cards licence is suspended, so the \"remember my card\" toggle is not shown at checkout and no new cards are saved."
+msgstr "הרישיון של OC Cardcom Cards מושהה, ולכן הטוגל \"זכור את הכרטיס\" לא מוצג בקופה ולא נשמרים כרטיסים חדשים."
+
+msgid "The OC Cardcom Cards licence key has not been confirmed by OC Pluginz yet. Saving cards works in the meantime."
+msgstr "מפתח הרישיון של OC Cardcom Cards עוד לא אושר מול OC Pluginz. שמירת הכרטיסים עובדת בינתיים."
+
+msgid "The plugin is free. The licence connects this site to OC Pluginz: it brings the plugin's updates and switches on saving new cards at checkout. Whatever the licence says, cards already saved keep working, and the checkout is never blocked."
+msgstr "התוסף חינמי. הרישיון מחבר את האתר ל-OC Pluginz: הוא מביא את עדכוני התוסף ומפעיל שמירת כרטיסים חדשים בקופה. בכל מצב של הרישיון, כרטיסים שכבר נשמרו ממשיכים לעבוד, והקופה אף פעם לא נחסמת."
+
+msgid "The WooCommerce id of Cardcom's payment method. Leave as 'cardcom' unless it was renamed."
+msgstr "המזהה של אמצעי התשלום של קארדקום ב-WooCommerce. השאירו 'cardcom' אלא אם השם שונה."
+
+msgid "This licence is not active. You can renew it in your OC Pluginz account."
+msgstr "הרישיון הזה לא פעיל. אפשר לחדש אותו בחשבון OC Pluginz."
 
 msgid "Title"
 msgstr "כותרת"
@@ -74,8 +302,32 @@ msgstr "תווית הטוגל"
 msgid "Toggle on by default"
 msgstr "טוגל דלוק כברירת מחדל"
 
+msgid "Too many requests in the last minute. Try again in a minute."
+msgstr "יותר מדי בקשות בדקה האחרונה. נסו שוב בעוד דקה."
+
+msgid "until %s"
+msgstr "עד %s"
+
+msgid "Update from the Plugins screen"
+msgstr "לעדכון ממסך התוספים"
+
+msgid "Updates"
+msgstr "עדכונים"
+
+msgid "Valid"
+msgstr "בתוקף"
+
 msgid "When on, each saved card appears as its own option in the payment list (with \"New credit card\" below), instead of nested under Cardcom. The charge is still processed by Cardcom (J5 + invoice)."
 msgstr "כשמופעל, כל כרטיס שמור מופיע כאפשרות נפרדת ברשימת התשלום (עם \"כרטיס אשראי חדש\" מתחת), במקום מקונן תחת קארדקום. החיוב עדיין מבוצע על ידי קארדקום (J5 + חשבונית)."
 
+msgid "You are not allowed to do this."
+msgstr "אין הרשאה."
+
 msgid "Your card is stored securely by Cardcom (a token, not the card number). You can remove it at any time from your account."
 msgstr "הכרטיס נשמר באופן מאובטח אצל קארדקום (טוקן, לא מספר הכרטיס). ניתן להסיר אותו בכל עת מהחשבון שלך."
+
+msgid "Your OC Pluginz account"
+msgstr "לחשבון OC Pluginz"
+
+msgid "Your OC Pluginz account:"
+msgstr "חשבון OC Pluginz שלכם:"

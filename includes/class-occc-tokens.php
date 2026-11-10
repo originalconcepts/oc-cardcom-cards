@@ -181,6 +181,12 @@ class OCCC_Tokens {
 		if ( ! OCCC_Settings::get_bool( 'enabled' ) ) {
 			return false;
 		}
+		// Restricted mode (no valid OC Pluginz licence): no NEW token is saved, even
+		// for an order that opted in while the licence was still in order. Tokens
+		// already saved are not touched.
+		if ( ! OCCC_Hub::licensed() ) {
+			return false;
+		}
 		if ( 'yes' !== $order->get_meta( '_occc_remember' ) ) {
 			return false;
 		}

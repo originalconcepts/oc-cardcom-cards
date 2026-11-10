@@ -1,13 +1,43 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: OC Cardcom Cards 0.2.0\n"
+"Project-Id-Version: OC Cardcom Cards 0.6.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "X-Domain: oc-cardcom-cards\n"
+
+msgid "%1$d of %2$d sites in use."
+msgstr ""
+
+msgid "(this site)"
+msgstr ""
+
+msgid "[%s] OC Cardcom Cards: saving new cards is switched off"
+msgstr ""
+
+msgid "A message from OC Pluginz · OC Cardcom Cards"
+msgstr ""
+
+msgid "Agency mode"
+msgstr ""
 
 msgid "Card saved for future purchases (Cardcom token rescued under J5)."
 msgstr ""
 
+msgid "Cardcom Cards"
+msgstr ""
+
 msgid "Cardcom gateway id"
+msgstr ""
+
+msgid "Cards already saved keep working at checkout and in My Account."
+msgstr ""
+
+msgid "Check for updates"
+msgstr ""
+
+msgid "Check now"
+msgstr ""
+
+msgid "Checked for updates. If there is a new version, it now shows on the Plugins screen."
 msgstr ""
 
 msgid "Checkout Toggle"
@@ -16,7 +46,37 @@ msgstr ""
 msgid "Companion to the Cardcom payment plugin. It adds a \"remember my card\" toggle at checkout and saves the token Cardcom mints under Capture Charge (J5) as a reusable saved card. Cardcom keeps handling the charge, J5 capture and invoicing."
 msgstr ""
 
+msgid "Connect"
+msgstr ""
+
+msgid "Connect the key"
+msgstr ""
+
+msgid "Connect to OC Pluginz"
+msgstr ""
+
+msgid "Connected. The licence is active on this site."
+msgstr ""
+
+msgid "Credit card ending in %1$s (exp %2$s)"
+msgstr ""
+
 msgid "Description (shown under the toggle)"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Disconnect this site"
+msgstr ""
+
+msgid "Disconnect this site from the licence? The \"remember my card\" toggle will no longer be shown at checkout and no new cards will be saved, until a key is connected again. Cards already saved keep working."
+msgstr ""
+
+msgid "Disconnect this site from the licence? Updates will stop until a key is connected again. Saving cards keeps working."
+msgstr ""
+
+msgid "Disconnected. This site's seat on the licence is free again."
 msgstr ""
 
 msgid "Enable debug logging (redacted, protected folder)"
@@ -25,28 +85,208 @@ msgstr ""
 msgid "Enable saved credit cards"
 msgstr ""
 
+msgid "Every site this licence allows is already connected. Disconnect another site first (on its account screen, or in your OC Pluginz account)."
+msgstr ""
+
+msgid "Everything on this site keeps working as before. To keep receiving updates, connect a licence key: it is free and takes a minute."
+msgstr ""
+
+msgid "Expired"
+msgstr ""
+
 msgid "General"
+msgstr ""
+
+msgid "Got it"
+msgstr ""
+
+msgid "Grace days"
+msgstr ""
+
+msgid "Installed: %s"
+msgstr ""
+
+msgid "Last check"
+msgstr ""
+
+msgid "Latest at OC Pluginz: %s"
+msgstr ""
+
+msgid "Licence"
+msgstr ""
+
+msgid "Licence key"
 msgstr ""
 
 msgid "Master switch for the \"remember my card\" feature. Turn off to hide the toggle everywhere without deactivating the plugin."
 msgstr ""
 
+msgid "New credit card"
+msgstr ""
+
+msgid "New versions are offered on the Plugins screen while the licence is valid."
+msgstr ""
+
+msgid "no end date"
+msgstr ""
+
+msgid "No key yet? It is free:"
+msgstr ""
+
+msgid "No licence key."
+msgstr ""
+
+msgid "Not accepted by OC Pluginz"
+msgstr ""
+
+msgid "Not confirmed yet"
+msgstr ""
+
+msgid "Not connected"
+msgstr ""
+
+msgid "Nothing was deleted and the checkout keeps working as usual. Saving new cards comes back by itself as soon as the licence is in order."
+msgstr ""
+
 msgid "OC Cardcom Cards"
+msgstr ""
+
+msgid "OC Cardcom Cards is installed."
+msgstr ""
+
+msgid "OC Cardcom Cards is not connected to OC Pluginz yet, so the \"remember my card\" toggle is not shown at checkout and no new cards are saved. Connect the licence key (it is free) to switch it on."
+msgstr ""
+
+msgid "OC Cardcom Cards now updates through OC Pluginz."
 msgstr ""
 
 msgid "OC Cardcom Cards requires WooCommerce to be installed and active."
 msgstr ""
 
-msgid "Recommended OFF. Saving a card should be an explicit opt-in."
+msgid "OC Pluginz account"
+msgstr ""
+
+msgid "OC Pluginz answered with status %d."
+msgstr ""
+
+msgid "OC Pluginz answered without a licence."
+msgstr ""
+
+msgid "OC Pluginz did not accept the OC Cardcom Cards licence key, so the \"remember my card\" toggle is not shown at checkout and no new cards are saved."
+msgstr ""
+
+msgid "OC Pluginz does not offer OC Cardcom Cards yet. Contact Original Concepts."
+msgstr ""
+
+msgid "OC Pluginz does not recognise this key for OC Cardcom Cards. Check it in your OC Pluginz account."
+msgstr ""
+
+msgid "OC Pluginz licence"
+msgstr ""
+
+msgid "OC Pluginz refused the request for now. Try again in a minute."
+msgstr ""
+
+msgid "OC_PLUGINZ_AGENCY is set in wp-config.php: this site does not use an OC Pluginz licence. Everything works in full, and the plugin does not contact OC Pluginz, so updates are installed by hand."
+msgstr ""
+
+msgid "One step is left: connect the free licence key you received by email. Until then the \"remember my card\" toggle is not shown at checkout; the checkout itself works as usual."
+msgstr ""
+
+msgid "Open the licence screen"
+msgstr ""
+
+msgid "Paste the licence key you received by email when you downloaded the plugin (the download is free). It also appears in your personal area at OC Pluginz."
+msgstr ""
+
+msgid "Plan"
 msgstr ""
 
 msgid "Remember my card for next time"
 msgstr ""
 
+msgid "Renews soon"
+msgstr ""
+
 msgid "Save credit card"
 msgstr ""
 
+msgid "Saved cards are switched off in the settings"
+msgstr ""
+
+msgid "Saved credit cards for Cardcom: a \"remember my card\" toggle at checkout, and the saved cards offered on the next purchase."
+msgstr ""
+
+msgid "Saving cards at checkout is on"
+msgstr ""
+
+msgid "Saving cards is on. This site ran OC Cardcom Cards before version 0.6.0, so it keeps working in full with or without a key; the key is what brings updates."
+msgstr ""
+
+msgid "Saving cards is on: the \"remember my card\" toggle is shown at checkout."
+msgstr ""
+
+msgid "Saving new cards is off: no valid licence"
+msgstr ""
+
+msgid "Set in OCCC_LICENSE_KEY in wp-config.php."
+msgstr ""
+
 msgid "Settings"
+msgstr ""
+
+msgid "Show saved cards as separate payment methods"
+msgstr ""
+
+msgid "Sites"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Suspended"
+msgstr ""
+
+msgid "That does not look like an OC Pluginz licence key (ocpz_…)."
+msgstr ""
+
+msgid "That saved card is unavailable. Please choose another method."
+msgstr ""
+
+msgid "The \"remember my card\" toggle starts on at checkout."
+msgstr ""
+
+msgid "The licence is checked again every hour, and every time this screen opens."
+msgstr ""
+
+msgid "The licence screen on your site:"
+msgstr ""
+
+msgid "The licence status was updated."
+msgstr ""
+
+msgid "The OC Cardcom Cards licence has expired, so the \"remember my card\" toggle is not shown at checkout and no new cards are saved."
+msgstr ""
+
+msgid "The OC Cardcom Cards licence has passed its end date and is on its grace days. Renew it now, or saving new cards will be switched off when they end."
+msgstr ""
+
+msgid "The OC Cardcom Cards licence is not in order, so updates are not offered. Saving cards keeps working on this site."
+msgstr ""
+
+msgid "The OC Cardcom Cards licence is suspended, so the \"remember my card\" toggle is not shown at checkout and no new cards are saved."
+msgstr ""
+
+msgid "The OC Cardcom Cards licence key has not been confirmed by OC Pluginz yet. Saving cards works in the meantime."
+msgstr ""
+
+msgid "The plugin is free. The licence connects this site to OC Pluginz: it brings the plugin's updates and switches on saving new cards at checkout. Whatever the licence says, cards already saved keep working, and the checkout is never blocked."
+msgstr ""
+
+msgid "The WooCommerce id of Cardcom's payment method. Leave as 'cardcom' unless it was renamed."
+msgstr ""
+
+msgid "This licence is not active. You can renew it in your OC Pluginz account."
 msgstr ""
 
 msgid "Title"
@@ -58,5 +298,32 @@ msgstr ""
 msgid "Toggle on by default"
 msgstr ""
 
+msgid "Too many requests in the last minute. Try again in a minute."
+msgstr ""
+
+msgid "until %s"
+msgstr ""
+
+msgid "Update from the Plugins screen"
+msgstr ""
+
+msgid "Updates"
+msgstr ""
+
+msgid "Valid"
+msgstr ""
+
+msgid "When on, each saved card appears as its own option in the payment list (with \"New credit card\" below), instead of nested under Cardcom. The charge is still processed by Cardcom (J5 + invoice)."
+msgstr ""
+
+msgid "You are not allowed to do this."
+msgstr ""
+
 msgid "Your card is stored securely by Cardcom (a token, not the card number). You can remove it at any time from your account."
+msgstr ""
+
+msgid "Your OC Pluginz account"
+msgstr ""
+
+msgid "Your OC Pluginz account:"
 msgstr ""

@@ -31,7 +31,7 @@ class OCCC_Settings {
 	 * @return void
 	 */
 	public static function init() {
-		add_action( 'admin_menu', array( __CLASS__, 'add_menu' ) );
+		add_action( 'init', array( __CLASS__, 'register_with_suite' ), 20 );
 		add_action( 'admin_init', array( __CLASS__, 'register' ) );
 		add_filter( 'plugin_action_links_' . OCCC_PLUGIN_BASENAME, array( __CLASS__, 'action_links' ) );
 	}
@@ -156,19 +156,55 @@ class OCCC_Settings {
 	 * --------------------------------------------------------------------- */
 
 	/**
-	 * Add the settings page under WooCommerce.
+	 * Register the plugin in the suite's one "OC Pluginz" menu (oc-pluginz/):
+	 * the settings are the main screen, the OC Pluginz account (licence) screen
+	 * is a hidden page reached through the tab next to it. The page slug is the
+	 * one the screen had under WooCommerce, so admin.php?page=oc-cardcom-cards
+	 * keeps working.
 	 *
 	 * @return void
 	 */
-	public static function add_menu() {
-		add_submenu_page(
-			'woocommerce',
-			__( 'OC Cardcom Cards', 'oc-cardcom-cards' ),
-			__( 'OC Cardcom Cards', 'oc-cardcom-cards' ),
-			'manage_woocommerce',
-			self::PAGE,
-			array( __CLASS__, 'render_page' )
+	public static function register_with_suite() {
+		if ( ! is_admin() || ! function_exists( 'oc_pluginz_register' ) ) {
+			return;
+		}
+		oc_pluginz_register(
+			'oc-cardcom-cards',
+			array(
+				'name'        => __( 'Cardcom Cards', 'oc-cardcom-cards' ),
+				'page'        => self::PAGE,
+				'page_title'  => __( 'Settings', 'oc-cardcom-cards' ),
+				'capability'  => 'manage_woocommerce',
+				'callback'    => array( __CLASS__, 'render_page' ),
+				'description' => __( 'Saved credit cards for Cardcom: a "remember my card" toggle at checkout, and the saved cards offered on the next purchase.', 'oc-cardcom-cards' ),
+				'version'     => OCCC_VERSION,
+				'account_url' => OCCC_Hub::settings_url(),
+				'status'      => array( __CLASS__, 'card_status' ),
+				'pages'       => array(
+					array(
+						'slug'       => OCCC_Hub_Admin::PAGE,
+						'title'      => __( 'OC Pluginz account', 'oc-cardcom-cards' ),
+						'capability' => OCCC_Hub::CAP,
+						'callback'   => array( 'OCCC_Hub_Admin', 'render' ),
+					),
+				),
+			)
 		);
+	}
+
+	/**
+	 * One line on the suite's overview card.
+	 *
+	 * @return string
+	 */
+	public static function card_status() {
+		if ( ! self::get_bool( 'enabled' ) ) {
+			return __( 'Saved cards are switched off in the settings', 'oc-cardcom-cards' );
+		}
+		if ( 'restricted' === OCCC_Hub::mode() ) {
+			return __( 'Saving new cards is off: no valid licence', 'oc-cardcom-cards' );
+		}
+		return __( 'Saving cards at checkout is on', 'oc-cardcom-cards' );
 	}
 
 	/**
@@ -236,6 +272,9 @@ class OCCC_Settings {
 	 * @return void
 	 */
 	public static function render_page() {
+		if ( ! current_user_can( 'manage_woocommerce' ) ) {
+			return;
+		}
 		$fields   = self::fields();
 		$sections = self::sections();
 		?>
