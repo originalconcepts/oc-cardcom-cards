@@ -42,7 +42,11 @@ class OCCC_Plugin {
 		// The OC Pluginz licence, updates from the hub, and the admin screens.
 		OCCC_Hub::boot();
 		OCCC_Notices::boot();
-		OCCC_Hub_Updater::boot();
+		if ( OCCC_Hub::github_updates() ) {
+			OCCC_Updater::init(); // An older install or an agency site, with no key: GitHub tags, as before 0.6.0.
+		} else {
+			OCCC_Hub_Updater::boot();
+		}
 		OCCC_Hub_Admin::boot();
 		OCCC_Settings::init();
 

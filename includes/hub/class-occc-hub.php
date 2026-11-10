@@ -278,6 +278,17 @@ class OCCC_Hub {
 	}
 
 	/**
+	 * Does this site take its updates from GitHub rather than from the hub? A site
+	 * that ran a version below 0.6.0, or an agency site, with no licence key: it
+	 * needs no key for anything. Once it connects a key, the hub brings the updates.
+	 *
+	 * @return bool
+	 */
+	public static function github_updates() {
+		return ( self::agency() || self::legacy() ) && '' === (string) self::key();
+	}
+
+	/**
 	 * Is the key fixed in wp-config.php?
 	 *
 	 * @return bool

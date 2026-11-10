@@ -3,7 +3,7 @@ Contributors: originalconcepts
 Requires at least: 5.8
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 0.6.0
+Stable tag: 0.6.1
 License: GPL-2.0-or-later
 
 Companion for Cardcom: a "remember my card" toggle at checkout that saves the J5 token as a reusable customer card.
@@ -16,6 +16,10 @@ plugin never turns into a saved card. Charging, J5 capture and invoicing stay wi
 Cardcom's plugin.
 
 == Changelog ==
+
+= 0.6.1 =
+* Sites that already ran a version below 0.6.0 need no licence key at all: they keep working in full and keep receiving updates from GitHub, as before, with no notice about a key. Only new installs need the free key.
+* Our own (agency) sites update from GitHub too.
 
 = 0.6.0 =
 * The plugin is now part of OC Pluginz and stays free. Updates arrive through the OC Pluginz hub with a free licence key; the bundled GitHub updater (Plugin Update Checker) was removed.

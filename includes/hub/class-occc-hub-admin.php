@@ -95,17 +95,9 @@ class OCCC_Hub_Admin {
 		$link   = ' <a href="' . esc_url( OCCC_Hub::settings_url() ) . '">' . esc_html__( 'Open the licence screen', 'oc-cardcom-cards' ) . '</a>';
 
 		if ( 'legacy' === $mode ) {
-			if ( 'no_key' === $reason ) {
-				if ( ( $own || $entry ) && ! get_user_meta( get_current_user_id(), self::META_LEGACY, true ) ) {
-					self::dismissible(
-						'legacy',
-						'notice-info',
-						'<strong>' . esc_html__( 'OC Cardcom Cards now updates through OC Pluginz.', 'oc-cardcom-cards' ) . '</strong> '
-						. esc_html__( 'Everything on this site keeps working as before. To keep receiving updates, connect a licence key: it is free and takes a minute.', 'oc-cardcom-cards' )
-						. ' <a href="' . esc_url( OCCC_Hub::settings_url() ) . '">' . esc_html__( 'Connect the key', 'oc-cardcom-cards' ) . '</a>'
-					);
-				}
-			} elseif ( $own && in_array( $reason, array( 'refused', 'suspended', 'expired', 'grace' ), true ) ) {
+			// No key on a site that ran a version below 0.6.0: nothing to say. It works in
+			// full and keeps updating from GitHub (0.6.1), so it is never asked for a key.
+			if ( 'no_key' !== $reason && $own && in_array( $reason, array( 'refused', 'suspended', 'expired', 'grace' ), true ) ) {
 				echo '<div class="notice notice-warning"><p>' . esc_html__( 'The OC Cardcom Cards licence is not in order, so updates are not offered. Saving cards keeps working on this site.', 'oc-cardcom-cards' ) . $link . '</p></div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built from escaped parts.
 			}
 			return;
@@ -232,7 +224,7 @@ class OCCC_Hub_Admin {
 	private static function mode_line() {
 		switch ( OCCC_Hub::mode() ) {
 			case 'legacy':
-				return array( '#15803d', __( 'Saving cards is on. This site ran OC Cardcom Cards before version 0.6.0, so it keeps working in full with or without a key; the key is what brings updates.', 'oc-cardcom-cards' ) );
+				return array( '#15803d', __( 'Saving cards is on. This site ran OC Cardcom Cards before version 0.6.0, so it keeps working in full and keeps receiving updates without a key.', 'oc-cardcom-cards' ) );
 			case 'full':
 				return array( '#15803d', __( 'Saving cards is on: the "remember my card" toggle is shown at checkout.', 'oc-cardcom-cards' ) );
 		}

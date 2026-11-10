@@ -2,7 +2,8 @@
 /**
  * Updates from the OC Pluginz package store: WordPress learns about a new
  * version from the hub, with the licence key as the ticket. This is the
- * plugin's only update source since 0.6.0 (the GitHub updater is gone).
+ * update source of every site with a licence key. A site that ran a version below
+ * 0.6.0 (or an agency site) and has no key keeps OCCC_Updater, the GitHub one.
  *
  * GET /products/oc-cardcom-cards/info answers {version, slug, package, url,
  * tested, requires}; the package URL streams the zip (top folder
